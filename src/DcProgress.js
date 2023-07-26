@@ -17,7 +17,7 @@ const DcProgress = () => {
                             <div className="flex flex-col items-center w-full mt-3">
                                 <div className="flex justify-between w-1/2 mx-auto mt-auto mb-2 font-semibold text-white/80 text-lg/normal">
                                     <span className="mr-4">12 Pending</span>
-                                    <span>85%</span>
+                                    <span>65%</span>
                                 </div>
                                 <div className="mx-3 rounded-2xl h-[8px] w-1/2 mx-auto bg-white/20">
                                     <div className="rounded-2xl bg-white w-[85%] h-[8px]"></div>

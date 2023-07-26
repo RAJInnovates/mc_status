@@ -6,7 +6,7 @@ function ComponentB() {
 
             <div className="grid grid-cols-1 gap-2">
 
-                <div className="w-[600px] h-[100px] bg-orange-100 rounded-[10px] flex items-start p-4 space-x-4">
+                <div className="w-[600px] h-[100px] bg-cyan-100 rounded-[10px] flex items-start p-4 space-x-4">
                     <div className="w-[46px] h-[46px] rounded-md border border-black" />
                     <div>
                         <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>
@@ -14,7 +14,7 @@ function ComponentB() {
                     </div>
                 </div>
 
-                <div className="w-[600px] h-[100px] bg-orange-100 rounded-[10px] flex items-start p-4 space-x-4">
+                <div className="w-[600px] h-[100px] bg-cyan-100 rounded-[10px] flex items-start p-4 space-x-4">
                     <div className="w-[46px] h-[46px] rounded-md border border-black" />
                     <div>
                         <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>

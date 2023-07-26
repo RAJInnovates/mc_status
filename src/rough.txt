@@ -1,0 +1,176 @@
+function Task() {
+
+    return (
+        <>
+
+
+            <div className="grid grid-cols-1 gap-2">
+
+                <div className="w-[600px] h-[100px] bg-indigo-100 rounded-[10px] flex items-start p-4 space-x-4">
+                    <div className="w-[46px] h-[46px] rounded-md border border-black" />
+                    <div>
+                        <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>
+                        <div className="text-black text-[22px] font-normal mb-1">Pre-Check</div>
+                    </div>
+                </div>
+                <div className="w-[600px] h-[100px] bg-indigo-100 rounded-[10px] flex items-start p-4 space-x-4">
+                    <div className="w-[46px] h-[46px] rounded-md border border-black" />
+                    <div>
+                        <div className="text-zinc-500 text-xs font-normal tracking-wide">Deploy-Automation</div>
+                        <div className="text-black text-[22px] font-normal mb-1">Deploy-Automation</div>
+                    </div>
+                </div>
+                <div className="w-[600px] h-[370px] bg-indigo-100 rounded-[10px] flex flex-col p-4 space-y-4">
+                    <div className="flex items-start space-x-4">
+                        <div className="w-[46px] h-[46px] rounded-md border border-black flex flex-col items-center">
+                            <div className="w-px h-5 bg-neutral-400" />
+                        </div>
+                        <div>
+                            <div className="text-black text-[22px] font-normal mb-1">
+                                Components are created for common elements.
+                            </div>
+                            <div className="text-zinc-500 text-xs font-normal tracking-wide">
+                                DESIGN
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                </div>
+                <div className="w-[600px] h-[100px] bg-indigo-100 rounded-[10px] flex items-start p-4 space-x-4">
+                    <div className="w-[46px] h-[46px] rounded-md border border-black" />
+                    <div>
+                        <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>
+                        <div className="text-black text-[22px] font-normal mb-1">Pre-Check</div>
+                    </div>
+                </div>
+                <div className="w-[600px] h-[100px] bg-indigo-100 rounded-[10px] flex items-start p-4 space-x-4">
+                    <div className="w-[46px] h-[46px] rounded-md border border-black" />
+                    <div>
+                        <div className="text-zinc-500 text-xs font-normal tracking-wide">Deploy-Automation</div>
+                        <div className="text-black text-[22px] font-normal mb-1">Deploy-Automation</div>
+                    </div>
+                </div>
+                <div className="w-[600px] h-[370px] bg-indigo-100 rounded-[10px] flex flex-col p-4 space-y-4">
+                    <div className="flex items-start space-x-4">
+                        <div className="w-[46px] h-[46px] rounded-md border border-black flex flex-col items-center">
+                            <div className="w-px h-5 bg-neutral-400" />
+                        </div>
+                        <div>
+                            <div className="text-black text-[22px] font-normal mb-1">
+                                Components are created for common elements.
+                            </div>
+                            <div className="text-zinc-500 text-xs font-normal tracking-wide">
+                                DESIGN
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                    <div className="w-[400px] h-20 relative">
+                        <div className="w-[30px] h-[30px] left-0 top-[25px] absolute">
+                            <div className="w-[30px] h-[30px] left-0 top-0 absolute rounded-md border border-green-600" />
+                        </div>
+                        <div className="w-[346px] h-[30px] left-[54px] top-[25px] absolute text-zinc-600 text-lg font-normal">Component content is easily tweaked.</div>
+                        <div className="w-px h-5 left-[15px] top-0 absolute bg-neutral-400" />
+                        <div className="w-px h-5 left-[15px] top-[60px] absolute bg-neutral-400" />
+                    </div>
+                </div>
+            </div>
+
+
+
+        </>
+
+    )
+}
+
+export default Task
+
+Sequence:
+
+Stage1 
+ 
+1 - Enable Application Maintenance (Only After Enabling Pingdom Maintenance)
+ Stage2 
+ 
+1 - Import Empty Cache
+ 
+1 - Scheduler Maintenance Enable
+ 
+1 - Zookeeper
+ 
+2 - Redis Config This job will update the redis_{port}.conf
+ Stage3 
+ 
+1 - Deploy Tomcat All (ZK should be done before)
+ 
+1 - Deploy Web Content
+ 
+1 - Kafka Only Configure, Restart (Only After Completion of ZK)
+ 
+1 - Miscellaneous Services Consolidated Single Click Deploy for AGYSVC, JAMES, REDISNM, SACIS
+ 
+1 - S2JOB, BIRT, REPORT, CLIENT Deployment (Only After Zookeeper Upgrade)
+ 
+1 - SFAPI Deployment (Only After Zookeeper Upgrade)
+ 
+1 - Solr Deploy, Configure, Reload Cores
+ Stage4 
+ 
+1 - Pre Upgrade Validation
+ 
+2 - DBGlobalObjects, SyncWL, SyncG, Refresh Msg Store Schema
+ 
+3 - Release Upgrade (Only After Enabling Scheduler Maintenance)
+ 
+4 - Release Migrate (Only After Completion of Company Upgrade)
+ 
+5 - Scheduler Maintenance Disable
+ 
+5 - SyncC
+ Stage5 
+ 
+1 - Configure Nginx (Only After Deploy Web Content)
+ 
+2 - Restart Nginx (Only After Configure Nginx)
+ 
+3 - Miscellaneous Scripts
+ 
+4 - Disable Maintenance Page (Only After Restarting NGINX & Validating All Services)

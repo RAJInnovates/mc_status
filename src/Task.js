@@ -5,7 +5,7 @@ import ComponentB from './ComponentB';
 import ComponentC from './ComponentC';
 
 
-const App = () => {
+const Tasks = () => {
     return (
         <div className="grid grid-cols-3">
             <div className="text-justify text-black text-[22px] font-normal mb-1">
@@ -24,4 +24,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Tasks;

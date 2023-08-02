@@ -1,7 +1,6 @@
 import { useState } from "react";
-function ComponentA() {
+function ComponentA({ checkedCount, setCheckedCount }) {
     const [isCheckedPreCheck, setIsCheckedPreCheck] = useState(false);
-    const [isCheckedMain, setIsCheckedMain] = useState(false);
     const [isCheckedGitPull, setIsCheckedGitPull] = useState(false);
     const [isCheckedDeployAutomation, setIsCheckedDeployAutomation] = useState(false);
     const [isCheckedDeployAutomationSub, setIsCheckedDeployAutomationSub] = useState(false);
@@ -9,6 +8,10 @@ function ComponentA() {
     const [isCheckedXxx, setIsCheckedXxx] = useState(false);
     const [isCheckedMaintenance, setIsCheckedMaintenance] = useState(false);
 
+    const handleCheckChange = (setChecked, prevChecked) => {
+        setChecked(!prevChecked);
+        setCheckedCount(prevCount => prevChecked ? prevCount - 1 : prevCount + 1);
+    };
 
     return (
         <>
@@ -21,7 +24,7 @@ function ComponentA() {
                     <input
                         type="checkbox"
                         checked={isCheckedPreCheck}
-                        onChange={(e) => setIsCheckedPreCheck(e.target.checked)}
+                        onChange={() => handleCheckChange(setIsCheckedPreCheck, isCheckedPreCheck)}
                         className="w-[46px] h-[46px] rounded-md border border-black "
                     />
                     <div>
@@ -52,17 +55,17 @@ function ComponentA() {
                         <input
                             type="checkbox"
                             checked={isCheckedGitPull}
-                            onChange={(e) => setIsCheckedGitPull(e.target.checked)}
+                            onChange={() => handleCheckChange(setIsCheckedGitPull, isCheckedGitPull)}
                             className="w-[30px] h-[30px] absolute left-0 top-[25px] rounded-md border border-black ml-[50px]"
                         />
-                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-zinc-600 text-lg font-normal">Git Pull</div>
+                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-black text-lg font-normal">Git Pull</div>
                         <div className="w-px h-5 left-[65px] top-0 absolute bg-neutral-400" />
                     </div>
                     <div className="w-[400px] h-20 relative">
                         <input
                             type="checkbox"
                             checked={isCheckedDeployAutomationSub}
-                            onChange={(e) => setIsCheckedDeployAutomationSub(e.target.checked)}
+                            onChange={() => handleCheckChange(setIsCheckedDeployAutomationSub, isCheckedDeployAutomationSub)}
                             className="w-[30px] h-[30px] absolute left-0 top-[25px] rounded-md border border-black ml-[50px]"
                         />
                         <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-zinc-600 text-lg font-normal">Deploy_Automation</div>
@@ -72,20 +75,20 @@ function ComponentA() {
                         <input
                             type="checkbox"
                             checked={isCheckedVaultSchema}
-                            onChange={(e) => setIsCheckedVaultSchema(e.target.checked)}
+                            onChange={() => handleCheckChange(setIsCheckedVaultSchema, isCheckedVaultSchema)}
                             className="w-[30px] h-[30px] absolute left-0 top-[25px] rounded-md border border-black ml-[50px]"
                         />
-                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-zinc-600 text-lg font-normal">Vault Schema Instantiation</div>
+                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-black text-lg font-normal">Vault Schema Instantiation</div>
                         <div className="w-px h-5 left-[65px] top-0 absolute bg-neutral-400" />
                     </div>
                     <div className="w-[400px] h-20 relative">
                         <input
                             type="checkbox"
                             checked={isCheckedXxx}
-                            onChange={(e) => setIsCheckedXxx(e.target.checked)}
+                            onChange={() => handleCheckChange(setIsCheckedXxx, isCheckedXxx)}
                             className="w-[30px] h-[30px] absolute left-0 top-[25px] rounded-md border border-black ml-[50px]"
                         />
-                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-zinc-600 text-lg font-normal">xxx</div>
+                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-black text-lg font-normal">xxx</div>
                         <div className="w-px h-5 left-[65px] top-0 absolute bg-neutral-400" />
                     </div>
                 </div>

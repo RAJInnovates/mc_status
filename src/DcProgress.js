@@ -1,7 +1,7 @@
 import React from "react";
 import './styles.css';
 
-const DcProgress = () => {
+const DcProgress = ({ checkedCount }) => {
     return (
         <>
             <div className="flex flex-wrap -mx-3 mb-5">
@@ -9,7 +9,7 @@ const DcProgress = () => {
                     <div className="relative flex flex-col min-w-0 break-words bg-green-500 border-0 bg-clip-border rounded-2xl mb-5 draggable">
                         <div className="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
                             <div className="flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/normal text-dark">
-                                <span className="text-white text-5xl/none font-semibold mr-2 tracking-[-0.115rem]">92</span>
+                                <span className="text-white text-5xl/none font-semibold mr-2 tracking-[-0.115rem]">{checkedCount}</span>
                                 <span className="pt-1 font-medium text-white/80 text-lg/normal">Completed Tasks</span>
                             </div>
                         </div>

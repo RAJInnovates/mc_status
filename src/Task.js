@@ -5,12 +5,12 @@ import ComponentB from './ComponentB';
 import ComponentC from './ComponentC';
 
 
-const Tasks = () => {
+const Tasks = ({ checkedCount, setCheckedCount }) => {
     return (
         <div className="grid grid-cols-3">
             <div className="text-justify text-black text-[22px] font-normal mb-1">
                 Stage 1
-                <ComponentA />
+                <ComponentA checkedCount={checkedCount} setCheckedCount={setCheckedCount} />
             </div>
             <div className="text-center text-justify text-black text-[22px] font-normal mb-1">
                 Stage 2

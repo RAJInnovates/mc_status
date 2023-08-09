@@ -68,7 +68,7 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                             onChange={() => handleCheckChange(setIsCheckedDeployAutomationSub, isCheckedDeployAutomationSub)}
                             className="w-[30px] h-[30px] absolute left-0 top-[25px] rounded-md border border-black ml-[50px]"
                         />
-                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-zinc-600 text-lg font-normal">Deploy_Automation</div>
+                        <div className="w-[346px] h-[30px] left-[90px] top-[25px] absolute text-black text-lg font-normal">Deploy_Automation</div>
                         <div className="w-px h-5 left-[65px] top-0 absolute bg-neutral-400" />
                     </div>
                     <div className="w-[400px] h-20 relative">
@@ -98,7 +98,7 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                     <input
                         type="checkbox"
                         checked={isCheckedMaintenance}
-                        onChange={(e) => setIsCheckedMaintenance(e.target.checked)}
+                        onChange={() => handleCheckChange(setIsCheckedMaintenance, isCheckedMaintenance)}
                         className="w-[46px] h-[46px] rounded-md border border-black "
                     />
                     <div>

@@ -7,7 +7,7 @@ import ComponentC from './ComponentC';
 
 const Tasks = ({ checkedCount, setCheckedCount }) => {
     return (
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-x-1 gap-y-1">
             <div className="text-justify text-black text-[22px] font-normal mb-1">
                 Stage 1
                 <ComponentA checkedCount={checkedCount} setCheckedCount={setCheckedCount} />

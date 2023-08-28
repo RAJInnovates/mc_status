@@ -35,17 +35,17 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                         onChange={() => handleCheckChange(setIsCheckedPreCheck, isCheckedPreCheck)}
                         className="w-[46px] h-[46px] rounded-md border border-black "
                     />
-
                     <div className="flex-grow">
                         <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>
-                        <div className="flex justify-between items-center text-black text-[22px] font-normal mb-1">
-                            <span className="flex-grow">Pre-Check</span>
-                            <button className="text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Pre-Check')}>
+                        <div className="flex items-center text-black text-[22px] font-normal mb-1">
+                            <span>Pre-Check</span>
+                            <button className="ml-2 text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Pre-Check')}> {/* Added ml-4 here */}
                                 <FontAwesomeIcon icon={faInfoCircle} />
                             </button>
                         </div>
                     </div>
                 </div>
+
 
                 <div className="w-[500px] h-[360px] bg-cyan-100 rounded-[10px] flex flex-col p-4 space-y-0">
                     <div className="flex items-start space-x-4">
@@ -55,11 +55,12 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                             onChange={(e) => setIsCheckedDeployAutomation(e.target.checked)}
                             className="w-[46px] h-[46px] rounded-md border border-black "
                         />
+
                         <div className="flex-grow">
                             <div className="text-zinc-500 text-xs font-normal tracking-wide">Deploy_Automation</div>
-                            <div className="flex justify-between items-center text-black text-[22px] font-normal mb-1">
-                                <span className="flex-grow">Deploy_Automation</span>
-                                <button className="text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Deploy_Automation')}>
+                            <div className="flex items-center text-black text-[22px] font-normal mb-1">
+                                <span>Deploy_Automation</span>
+                                <button className="ml-2 text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('DeployAutomation')}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                 </button>
                             </div>
@@ -125,16 +126,18 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                 </div>
 
 
-                <div className="w-[550px] h-[80px] bg-cyan-100 rounded-[10px] flex items-start p-4 space-x-4">
+                <div className="w-[500px] h-[80px] bg-cyan-100 rounded-[10px] flex items-start p-4 space-x-4">
                     <input
                         type="checkbox"
                         checked={isCheckedMaintenance}
                         onChange={() => handleCheckChange(setIsCheckedMaintenance, isCheckedMaintenance)}
                         className="w-[46px] h-[46px] rounded-md border border-black "
                     />
-                    <div>
+
+                    <div className="flex-grow">
                         <div className="text-zinc-500 text-xs font-normal tracking-wide">Maintenance</div>
-                        <div className="text-black text-[22px] font-normal mb-1">Maintenance
+                        <div className="flex items-center text-black text-[22px] font-normal mb-1">
+                            <span>Maintenance</span>
                             <button className="ml-2 text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Maintenance')}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                             </button>

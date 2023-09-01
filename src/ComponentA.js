@@ -3,7 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-
+export const fetchTaskInfo = async (taskName) => {
+    try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/tasks/${taskName}/`);
+        return response.data.info;
+    } catch (error) {
+        console.error('Error fetching task info:', error.response ? error.response.data : error.message);
+        return null;
+    }
+};
 
 function ComponentA({ checkedCount, setCheckedCount }) {
     const [isCheckedPreCheck, setIsCheckedPreCheck] = useState(false);
@@ -13,29 +21,30 @@ function ComponentA({ checkedCount, setCheckedCount }) {
     const [isCheckedVaultSchema, setIsCheckedVaultSchema] = useState(false);
     const [isCheckedXxx, setIsCheckedXxx] = useState(false);
     const [isCheckedMaintenance, setIsCheckedMaintenance] = useState(false);
-
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState('');
+
+    const handleInfoClick = async (taskName) => {
+        try {
+            const info = await fetchTaskInfo(taskName);
+            if (info !== null) {
+                setModalContent(info);
+                setIsModalOpen(true);
+            } else {
+                alert('Error fetching task info.');
+            }
+        } catch (error) {
+            console.error('Error fetching task info', error);
+            alert('Error fetching task info.');
+        }
+    };
 
 
     const handleCheckChange = (setChecked, prevChecked) => {
         setChecked(!prevChecked);
         setCheckedCount(prevCount => prevChecked ? prevCount - 1 : prevCount + 1);
     };
-    const handleInfoClick = async (taskName) => {
-        try {
-            const response = await axios.get(`YOUR_API_ENDPOINT/${taskName}`);
-            if (response.data && response.data.info) {
-                setModalContent(response.data.info);
-                setIsModalOpen(true);
-            } else {
-                alert('Error fetching task info.');
-            }
-        } catch (error) {
-            console.error('There was an error fetching the data', error);
-            alert('Error fetching task info.');
-        }
-    };
+
 
 
     return (
@@ -56,11 +65,22 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                         <div className="text-zinc-500 text-xs font-normal tracking-wide">Pre-Check</div>
                         <div className="flex items-center text-black text-[22px] font-normal mb-1">
                             <span>Pre-Check</span>
-                            <button className="ml-2 text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Pre-Check')}> {/* Added ml-4 here */}
+                            <button className="ml-2 text-blue-200 hover:text-blue-700 transition-colors duration-200" onClick={() => handleInfoClick('Pre-Check')}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                             </button>
                         </div>
                     </div>
+                    {isModalOpen && (
+                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <div className="bg-gray-800 bg-opacity-50 absolute inset-0"></div>
+                            <div className="bg-white rounded-lg p-8 w-1/2 z-10">
+                                <span className="absolute top-0 right-0 p-4 cursor-pointer" onClick={() => setIsModalOpen(false)}>
+                                    &times;
+                                </span>
+                                <p className="text-gray-800">{modalContent}</p>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
 

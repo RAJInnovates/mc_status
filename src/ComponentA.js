@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 
 
@@ -13,13 +14,29 @@ function ComponentA({ checkedCount, setCheckedCount }) {
     const [isCheckedXxx, setIsCheckedXxx] = useState(false);
     const [isCheckedMaintenance, setIsCheckedMaintenance] = useState(false);
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalContent, setModalContent] = useState('');
+
+
     const handleCheckChange = (setChecked, prevChecked) => {
         setChecked(!prevChecked);
         setCheckedCount(prevCount => prevChecked ? prevCount - 1 : prevCount + 1);
     };
-    const handleInfoClick = (taskName) => {
-        alert(`Information about ${taskName}`);
+    const handleInfoClick = async (taskName) => {
+        try {
+            const response = await axios.get(`YOUR_API_ENDPOINT/${taskName}`);
+            if (response.data && response.data.info) {
+                setModalContent(response.data.info);
+                setIsModalOpen(true);
+            } else {
+                alert('Error fetching task info.');
+            }
+        } catch (error) {
+            console.error('There was an error fetching the data', error);
+            alert('Error fetching task info.');
+        }
     };
+
 
     return (
         <>
@@ -145,6 +162,7 @@ function ComponentA({ checkedCount, setCheckedCount }) {
                     </div>
                 </div>
             </div>
+
 
 
 

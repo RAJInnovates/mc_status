@@ -1,0 +1,18 @@
+{
+    "environments": [
+        {
+            "name": "Preview",
+            "dataCenters": [
+                { "name": "DataCenter1" },
+                { "name": "DataCenter2" }
+            ]
+        },
+        {
+            "name": "Prod",
+            "dataCenters": [
+                { "name": "DataCenter3" },
+                { "name": "DataCenter4" }
+            ]
+        }
+    ]
+}

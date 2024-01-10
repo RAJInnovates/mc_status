@@ -1,84 +1,68 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import DcProgress from './DcProgress'; // Make sure this path is correct
-import config from './config.json'; // Adjust the import path as needed
+    import React from 'react';
 
-const HomePage = () => {
-    const [selectedEnvironment, setSelectedEnvironment] = useState('');
-    const [selectedDataCenter, setSelectedDataCenter] = useState('');
-    const navigate = useNavigate(); // Initialize the navigate function
+    const HomePage = () => {
+        let inProgressTasks = [
+            { id: 'DC34', title: 'EMEA - DC34 Prod', completed: 16, percentage: Math.round((16 / 45) * 100) },
+            { id: 'DC66', title: 'DC66 Prod', completed: 20, percentage: Math.round((20 / 45) * 100) },
+            { id: 'DC30', title: 'DC30 Prod', completed: 30, percentage: Math.round((30 / 45) * 100) },
+            { id: 'DC52', title: 'DC52 Prod', completed: 25, percentage: Math.round((25 / 45) * 100) },
+            { id: 'DC50', title: 'DC50 Prod', completed: 10, percentage: Math.round((10 / 45) * 100) },
+            { id: 'DC23', title: 'DC23 Prod', completed: 25, percentage: Math.round((25 / 45) * 100) },
+            { id: 'DC22', title: 'DC22 Prod', completed: 35, percentage: Math.round((35 / 45) * 100) },
+            { id: 'DC57', title: 'DC57 Prod', completed: 5, percentage: Math.round((5 / 45) * 100) },
+            { id: 'DC33', title: 'DC33 Prod', completed: 40, percentage: Math.round((40 / 45) * 100) },
+            { id: 'DC55', title: 'DC55 Prod', completed: 5, percentage: Math.round((5 / 45) * 100) },
+        ];
 
-    const handleEnvironmentChange = (event) => {
-        setSelectedEnvironment(event.target.value);
-        setSelectedDataCenter(''); // Reset data center when environment changes
-    };
+        // Sort in-progress tasks in descending order of completion percentage
+        inProgressTasks = inProgressTasks.sort((a, b) => b.percentage - a.percentage);
 
-    const handleDataCenterChange = (event) => {
-        setSelectedDataCenter(event.target.value);
-    };
+        const completedTasks = [
+            { id: 'US-DC68', title: 'US - DC68 Prod', completed: 45, percentage: 100 },
+            { id: 'DC68', title: 'DC68 Prod', completed: 45, percentage: 100 },
+            { id: 'DC70', title: 'DC70 Prod', completed: 45, percentage: 100 },
+            { id: 'DC41', title: 'DC41 Prod', completed: 45, percentage: 100 },
+            { id: 'DC47', title: 'DC47 Prod', completed: 45, percentage: 100 },
+            { id: 'DC62', title: 'DC62 Prod', completed: 45, percentage: 100 },
+        ];
 
-    const navigateToChecklist = () => {
-        // Navigate to the checklist page with selected environment and data center
-        if (selectedEnvironment && selectedDataCenter) {
-            navigate(`/checklist/${selectedEnvironment}/${selectedDataCenter}`);
-        }
-    };
+        return (
+            <div className="container mx-auto p-8">
+                <h1 className="text-3xl font-bold underline text-center text-gray-800 mb-8">Home Page</h1>
 
-    return (
-        <div className="container mx-auto p-4">
-            <div className="mb-4">
-                <label htmlFor="environment" className="block text-sm font-medium text-gray-700">Environment</label>
-                <select id="environment" value={selectedEnvironment} onChange={handleEnvironmentChange} className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="">Select Environment</option>
-                    {config.environments.map((env) => (
-                        <option key={env.name} value={env.name}>{env.name}</option>
+                <h2 className="text-xl font-bold text-purple-600 mb-4">In-Progress</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {inProgressTasks.map((task) => (
+                        <div key={task.id} className="bg-white rounded-lg shadow p-4">
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-lg font-semibold">{task.title}</h3>
+                                <span className="text-sm font-semibold text-purple-600">{task.percentage}%</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+                                <div className="bg-purple-600 h-2 rounded-full" style={{ width: `${task.percentage}%` }}></div>
+                            </div>
+                            <div className="text-sm text-gray-600">{task.completed}/45 Completed</div>
+                        </div>
                     ))}
-                </select>
-            </div>
-            <div className="mb-4">
-                <label htmlFor="dataCenter" className="block text-sm font-medium text-gray-700">Data Center</label>
-                <select id="dataCenter" value={selectedDataCenter} onChange={handleDataCenterChange} disabled={!selectedEnvironment} className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="">Select Data Center</option>
-                    {selectedEnvironment && config.environments.find((env) => env.name === selectedEnvironment)?.dataCenters.map((dc) => (
-                        <option key={dc.name} value={dc.name}>{dc.name}</option>
+                </div>
+
+                <h2 className="text-xl font-bold text-green-600 mt-8 mb-4">Completed</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {completedTasks.map((task) => (
+                        <div key={task.id} className="bg-white rounded-lg shadow p-4">
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-lg font-semibold">{task.title}</h3>
+                                <span className="text-sm font-semibold text-green-600">100%</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+                                <div className="bg-green-600 h-2 rounded-full" style={{ width: '100%' }}></div>
+                            </div>
+                            <div className="text-sm text-gray-600">45/45 Completed</div>
+                        </div>
                     ))}
-                </select>
+                </div>
             </div>
-            <button onClick={navigateToChecklist} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Go to Checklist
-            </button>
+        );
+    };
 
-            <div className="mt-8">
-                <table className="min-w-full">
-                    <thead>
-                        <tr>
-                            <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Data Center</th>
-                            <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Progress</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {config.environments.flatMap(env =>
-                            env.dataCenters.map(dc => (
-                                <tr key={dc.name}>
-                                    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                        {dc.name}
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                        <DcProgress
-                                            dcName={dc.name}
-                                            checkedCount={0} // Replace with actual data
-                                            pendingTasks={0} // Replace with actual data
-                                            completionPercentage={0} // Replace with actual data
-                                        />
-                                    </td>
-                                </tr>
-                            ))
-                        )}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    );
-};
-
-export default HomePage;
+    export default HomePage;
